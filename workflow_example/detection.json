@@ -1,0 +1,392 @@
+{
+  "id": "d807b587-9227-4724-9102-5ac0df0d338f",
+  "revision": 0,
+  "last_node_id": 23,
+  "last_link_id": 15,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "WatermarkDetectorLoader",
+      "pos": [
+        -12.355295181274414,
+        175.80868530273438
+      ],
+      "size": [
+        199.66268920898438,
+        26
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "model",
+          "localized_name": "model",
+          "name": "model",
+          "type": "YOLO_MODEL",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "lrzjason/ComfyUI-Watermark-Detection",
+        "ver": "bd95c968d8a14591945c5d66a7e4b5e00b160128",
+        "Node name for S&R": "WatermarkDetectorLoader",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 16,
+      "type": "WatermarkDetector",
+      "pos": [
+        262.43084716796875,
+        161.06541442871094
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 8
+        },
+        {
+          "label": "model",
+          "localized_name": "model",
+          "name": "model",
+          "type": "YOLO_MODEL",
+          "link": 9
+        },
+        {
+          "label": "threshold",
+          "localized_name": "threshold",
+          "name": "threshold",
+          "type": "FLOAT",
+          "widget": {
+            "name": "threshold"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "image",
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "label": "mask",
+          "localized_name": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "label": "bboxes",
+          "localized_name": "bboxes",
+          "name": "bboxes",
+          "type": "BBOXES",
+          "links": null
+        },
+        {
+          "label": "classes",
+          "localized_name": "classes",
+          "name": "classes",
+          "type": "CLASSES",
+          "links": null
+        },
+        {
+          "label": "confidences",
+          "localized_name": "confidences",
+          "name": "confidences",
+          "type": "CONFIDENCES",
+          "links": null
+        },
+        {
+          "label": "result",
+          "localized_name": "result",
+          "name": "result",
+          "type": "RESULT",
+          "links": null
+        },
+        {
+          "label": "detect_result",
+          "localized_name": "detect_result",
+          "name": "detect_result",
+          "type": "DETECT_RESULT",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "lrzjason/ComfyUI-Watermark-Detection",
+        "ver": "bd95c968d8a14591945c5d66a7e4b5e00b160128",
+        "Node name for S&R": "WatermarkDetector",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {
+          "threshold": true
+        }
+      },
+      "widgets_values": [
+        0.5
+      ]
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        -66.06106567382812,
+        269.1952209472656
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "label": "upload",
+          "localized_name": "选择文件上传",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "IMAGE",
+          "localized_name": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        },
+        {
+          "label": "MASK",
+          "localized_name": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "LoadImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {
+          "image": true,
+          "upload": true
+        }
+      },
+      "widgets_values": [
+        "640 (2).jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "easy showAnything",
+      "pos": [
+        595.6212768554688,
+        282.3355712890625
+      ],
+      "size": [
+        140,
+        76
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "anything",
+          "localized_name": "输入任何",
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "label": "output",
+          "localized_name": "输出",
+          "name": "output",
+          "type": "*",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "ea521e03036173e701e33e342567229708eecc43",
+        "Node name for S&R": "easy showAnything",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "Watermarked"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "ShowText|pysssss",
+      "pos": [
+        795.2044067382812,
+        281.3323669433594
+      ],
+      "size": [
+        214.20001220703125,
+        76
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "字符串",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-Universal-Styler",
+        "ver": "bfe88489ff250a84bc25c210d84a58135f9a8a8f",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ShowText|pysssss",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "Watermarked"
+      ]
+    }
+  ],
+  "links": [
+    [
+      8,
+      5,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      2,
+      0,
+      16,
+      1,
+      "YOLO_MODEL"
+    ],
+    [
+      10,
+      16,
+      6,
+      19,
+      0,
+      "*"
+    ],
+    [
+      15,
+      19,
+      0,
+      23,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.16.9",
+    "VHS_latentpreview": true,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ds": {
+      "scale": 0.9646149645000006,
+      "offset": [
+        453.964534282631,
+        8.047782461029565
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "workspace_info": {
+      "id": "-nW-Itavm5m1XtzTC5vTQ"
+    }
+  },
+  "version": 0.4
+}
